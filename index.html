@@ -8,7 +8,7 @@
 
     <meta name="description" content="River City Rinse provides professional power washing services for residential and commercial properties. We make your surfaces spotlessly clean.">
     <meta name="keywords" content="power washing, pressure washing, cleaning services, exterior cleaning, River City Rinse">
-
+    <link rel="stylesheet" href="chatbot/chatbot.css">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -1321,10 +1321,7 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <a href="#" id="back-to-top" class="fixed bottom-6 right-6 bg-primary hover:bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-50 transition-all transform scale-0">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+
 <!-- Contact Modal -->
 <div id="contactModal" 
      x-data="contactModal()" 
@@ -1754,24 +1751,9 @@ function contactModal() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('scale-0');
-                backToTopButton.classList.add('scale-100');
-            } else {
-                backToTopButton.classList.remove('scale-100');
-                backToTopButton.classList.add('scale-0');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+
     </script>
-    
+    <div id="chatbot-container"></div>
+    <script src="chatbot/chatbot.js"></script>
 </body>
 </html>
