@@ -12,7 +12,7 @@ export async function onRequestPost({ request, env }) {
   
       // Make your external fetch call
       const response = await fetch(
-        "https://api.cloudflare.com/client/v4/accounts/fa9672927a5842ac61b86575d9ab976c/autorag/rags/rivercityrinse-rag-new/ai-search", // Change This
+        "https://api.cloudflare.com/client/v4/accounts/fa9672927a5842ac61b86575d9ab976c/autorag/rags/rivercityrinse-rag-new/ai-search", // Change this to your endpoint
         {
           method: "POST",
           headers: {
