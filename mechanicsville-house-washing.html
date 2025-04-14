@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>River City Rinse - House Washing in Mechanicsville, VA</title>
+    <link rel="icon" type="image/png" href="pics/favi.png">
+
+    <meta name="description" content="River City Rinse offers expert House washing in Mechanicsville, VA for homes and businesses. Clean driveways, decks, and more.">
+    <meta name="keywords" content="House washing Mechanicsville VA, pressure washing Mechanicsville, exterior cleaning Mechanicsville, River City Rinse">
+    <link rel="stylesheet" href="chatbot/chatbot.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js for interactivity -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.5/cdn.min.js" defer></script>
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0063a7',
+                        secondary: '#00a3e0',
+                        accent: '#ffffff',
+                        light: '#e6f7ff',
+                        dark: '#003459'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'wave': 'wave 8s linear infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        wave: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .water-bg {
+            background-image: url('https://placehold.co/1920x1080/e6f7ff/e6f7ff');
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .water-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0, 99, 167, 0.1) 0%, rgba(0, 163, 224, 0.2) 100%);
+        }
+
+        .water-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100px;
+            background: url('https://placehold.co/1920x200/0063a7/0063a7?text=wave') repeat-x;
+            background-size: 50% 100%;
+            animation: wave 8s linear infinite;
+            opacity: 0.7;
+        }
+
+        .water-wave.wave2 {
+            bottom: 10px;
+            animation: wave 10s linear infinite;
+            opacity: 0.5;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 99, 167, 0.1), 0 10px 10px -5px rgba(0, 99, 167, 0.04);
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #e6f7ff;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #0063a7 0%, #00a3e0 100%);
+            border-radius: 10px;
+            border: 3px solid #e6f7ff;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #0063a7 30%, #00a3e0 100%);
+            box-shadow: 0 0 10px rgba(0, 99, 167, 0.5);
+        }
+
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #0063a7 #e6f7ff;
+        }
+
+        .bg-bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: rise 10s infinite ease-in;
+        }
+
+        .bubble:nth-child(1) {
+            width: 40px;
+            height: 40px;
+            left: 10%;
+            animation-duration: 8s;
+        }
+
+        .bubble:nth-child(2) {
+            width: 20px;
+            height: 20px;
+            left: 20%;
+            animation-duration: 5s;
+            animation-delay: 1s;
+        }
+
+        .bubble:nth-child(3) {
+            width: 50px;
+            height: 50px;
+            left: 35%;
+            animation-duration: 7s;
+            animation-delay: 2s;
+        }
+
+        .bubble:nth-child(4) {
+            width: 30px;
+            height: 30px;
+            left: 50%;
+            animation-duration: 6s;
+            animation-delay: 0s;
+        }
+
+        .bubble:nth-child(5) {
+            width: 45px;
+            height: 45px;
+            left: 65%;
+            animation-duration: 9s;
+            animation-delay: 3s;
+        }
+
+        .bubble:nth-child(6) {
+            width: 25px;
+            height: 25px;
+            left: 80%;
+            animation-duration: 7s;
+            animation-delay: 2s;
+        }
+
+        .bubble:nth-child(7) {
+            width: 35px;
+            height: 35px;
+            left: 90%;
+            animation-duration: 8s;
+            animation-delay: 1s;
+        }
+
+        @keyframes rise {
+            0% {
+                bottom: -100px;
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(20px);
+            }
+            100% {
+                bottom: 1080px;
+                transform: translateX(-20px);
+            }
+        }
+
+        .checkbox-primary {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            user-select: none;
+        }
+        
+        .checkbox-primary input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #eee;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .checkbox-primary:hover input ~ .checkmark {
+            background-color: #ccc;
+        }
+        
+        .checkbox-primary input:checked ~ .checkmark {
+            background-color: #0063a7;
+        }
+        
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        .checkbox-primary input:checked ~ .checkmark:after {
+            display: block;
+        }
+        
+        .checkbox-primary .checkmark:after {
+            left: 7px;
+            top: 3px;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="/" class="flex items-center space-x-2">
+                    <div class="bg-primary rounded-full p-2">
+                        <i class="fas fa-water text-white text-xl"></i>
+                    </div>
+                    <span class="text-primary text-2xl font-bold">River City <span class="text-secondary">Rinse</span></span>
+                </a>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="/" class="text-dark hover:text-primary transition-colors font-medium">Home</a>
+                    <a href="#services" class="text-dark hover:text-primary transition-colors font-medium">Services</a>
+                    <a href="#process" class="text-dark hover:text-primary transition-colors font-medium">Our Process</a>
+                    <a href="#gallery" class="text-dark hover:text-primary transition-colors font-medium">Gallery</a>
+                    <a href="#testimonials" class="text-dark hover:text-primary transition-colors font-medium">Testimonials</a>
+                    <a href="#contact" class="text-dark hover:text-primary transition-colors font-medium">Contact</a>
+                </nav>
+
+                <div class="hidden md:block">
+                    <a href="#contact" class="bg-primary hover:bg-secondary text-white py-2 px-6 rounded-full font-medium transition-colors">Get a Quote</a>
+                </div>
+
+                <button id="mobile-menu-button" class="md:hidden text-primary">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <nav class="flex flex-col space-y-4">
+                    <a href="/" class="text-dark hover:text-primary transition-colors font-medium">Home</a>
+                    <a href="#services" class="text-dark hover:text-primary transition-colors font-medium">Services</a>
+                    <a href="#process" class="text-dark hover:text-primary transition-colors font-medium">Our Process</a>
+                    <a href="#gallery" class="text-dark hover:text-primary transition-colors font-medium">Gallery</a>
+                    <a href="#testimonials" class="text-dark hover:text-primary transition-colors font-medium">Testimonials</a>
+                    <a href="#contact" class="text-dark hover:text-primary transition-colors font-medium">Contact</a>
+                    <a href="#contact" class="bg-primary hover:bg-secondary text-white py-2 px-6 rounded-full font-medium transition-colors text-center">Get a Quote</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section with Quote Builder -->
+        <section class="water-bg py-20 md:py-32 relative overflow-hidden">
+            <!-- Bubbles Animation -->
+            <div class="bg-bubbles">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+            </div>
+            
+            <!-- Water Waves -->
+            <div class="water-wave"></div>
+            <div class="water-wave wave2"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left">
+                        <span class="inline-block bg-white/80 text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">House Washing in Mechanicsville, VA</span>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6 text-dark">
+                            Mechanicsville’s <br>
+                            <span class="text-primary">Top House Washing</span>
+                        </h1>
+                        <p class="text-lg mb-8 text-dark/80 max-w-lg mx-auto md:mx-0">
+                            River City Rinse provides expert House washing services in Mechanicsville, VA. From driveways to siding, we make your property shine.
+                        </p>
+                        
+                        <!-- Quote Builder -->
+                        <div class="flex flex-col space-y-6 justify-center md:justify-start">
+                            <div class="bg-white/90 rounded-xl shadow-lg p-4" x-data="quoteBuilder()">
+                                <h3 class="text-primary font-bold mb-3">Get Your Free Quote</h3>
+                                
+                                <div class="relative mb-3">
+                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-primary/70">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                    <input 
+                                        type="text" 
+                                        x-model="searchTerm" 
+                                        @input="searchAddress()" 
+                                        placeholder="Enter your Mechanicsville address..." 
+                                        class="w-full pl-10 py-3 px-4 bg-white border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                                    >
+                                    
+                                    <div 
+                                        class="absolute z-20 w-full bg-white mt-1 border border-gray-200 rounded-xl shadow-lg max-h-60 overflow-y-auto" 
+                                        x-show="suggestions.length > 0"
+                                        @click.away="suggestions = []"
+                                    >
+                                        <template x-for="(suggestion, index) in suggestions" :key="index">
+                                            <div 
+                                                class="p-3 border-b border-gray-100 cursor-pointer hover:bg-primary/10 transition-colors duration-200 flex items-center"
+                                                @click="selectAddress(suggestion)"
+                                            >
+                                                <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                                                <span x-text="suggestion.address"></span>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                                
+                                <div x-show="selectedAddress === null" class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
+                                    <button 
+                                        @click="searchAddress()"
+                                        class="bg-primary hover:bg-secondary text-white py-3 px-6 rounded-full font-semibold transition-colors inline-flex items-center justify-center"
+                                    >
+                                        <span>Search Address</span>
+                                        <i class="fas fa-search ml-2"></i>
+                                    </button>
+                                    <a href="#services" class="bg-white text-primary border border-primary py-3 px-6 rounded-full font-semibold hover:bg-primary hover:text-white transition-colors inline-flex items-center justify-center">
+                                        <span>Our Services</span>
+                                    </a>
+                                </div>
+                                
+                                <div 
+                                    x-show="selectedAddress !== null"
+                                    x-transition:enter="transition ease-out duration-300"
+                                    x-transition:enter-start="opacity-0"
+                                    x-transition:enter-end="opacity-100"
+                                    class="mt-3"
+                                >
+                                    <div class="bg-gradient-to-r from-primary to-secondary p-3 rounded-t-lg text-white">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <p class="font-medium flex items-center">
+                                                    <i class="fas fa-home mr-2"></i>
+                                                    <span x-text="selectedAddress?.address"></span>
+                                                </p>
+                                            </div>
+                                            <div class="text-right">
+                                                <div class="text-sm opacity-90">Base price:</div>
+                                                <div class="text-xl font-bold" x-text="'$' + selectedAddress?.cost"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="p-3 bg-white/80 border-x border-b border-gray-200 rounded-b-lg">
+                                        <p class="font-medium mb-2 flex items-center text-gray-700">
+                                            <i class="fas fa-plus-circle mr-2 text-primary"></i>
+                                            Additional Services:
+                                        </p>
+                                        
+                                        <div class="grid grid-cols-2 gap-2 mb-3">
+                                            <template x-for="(addon, index) in addons" :key="index">
+                                                <div class="relative bg-white/50 rounded-lg p-2 transition-all hover:shadow-sm border border-gray-100 hover:border-primary/20">
+                                                    <label class="checkbox-primary flex items-center w-full cursor-pointer text-sm">
+                                                        <input 
+                                                            type="checkbox" 
+                                                            :id="'addon-' + index"
+                                                            x-model="addon.selected"
+                                                            @change="updateAddonDetails()"
+                                                            class="hidden"
+                                                        >
+                                                        <span class="checkmark"></span>
+                                                        <div class="ml-2">
+                                                            <div class="font-medium" x-text="addon.name"></div>
+                                                            <div class="text-gray-500 text-xs" x-text="addon.priceRange"></div>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </template>
+                                        </div>
+                                        
+                                        <div class="flex justify-between items-center border-t border-gray-200 pt-2 mt-2">
+                                            <div>
+                                                <p class="font-medium text-primary">Total Estimate:</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <p class="font-bold text-lg" x-text="'$' + (parseInt(selectedAddress?.cost) + addonMinTotal) + ' - $' + (parseInt(selectedAddress?.cost) + addonMaxTotal)"></p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-3 flex space-x-2">
+                                            <button 
+                                                @click="openContactModal()"
+                                                class="flex-1 bg-primary hover:bg-secondary text-white py-2 px-4 rounded-full font-medium text-sm transition-colors inline-flex items-center justify-center"
+                                            >
+                                                <i class="fas fa-calendar-check mr-2"></i>
+                                                <span>Schedule Cleaning</span>
+                                            </button>
+                                            <button 
+                                                @click="resetForm()"
+                                                class="bg-gray-100 hover:bg-gray-200 text-gray-700 py-2 px-3 rounded-full font-medium text-sm transition-colors"
+                                            >
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="relative bg-white p-3 rounded-lg shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                            <img src="hero.jpg" alt="House Washing in Mechanicsville, VA" class="w-full h-auto rounded-lg">
+                            <div class="absolute -bottom-5 -right-5 bg-white px-4 py-2 rounded-full shadow-lg">
+                                <div class="flex items-center space-x-2">
+                                    <span class="font-bold text-dark text-sm">Before</span>
+                                    <div class="bg-primary w-0.5 h-6"></div>
+                                    <span class="font-bold text-primary text-sm">After</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <span class="inline-block bg-light text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">Our Services</span>
+                    <h2 class="text-4xl font-bold mb-4 text-dark">House Washing in Mechanicsville</h2>
+                    <p class="text-lg text-dark/70 max-w-3xl mx-auto">We provide top-tier cleaning services for Mechanicsville homes and businesses, tailored to your needs.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="pics/house.jpg" alt="Residential House Washing Mechanicsville" class="w-full h-56 object-cover">
+                            <div class="absolute top-4 left-4 bg-white/90 text-primary py-1 px-3 rounded-full font-semibold text-sm">
+                                Popular
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-home text-primary"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-dark">Residential Services</h3>
+                            </div>
+                            <p class="text-dark/70 mb-6">Revitalize your Mechanicsville home with our expert House washing services.</p>
+                            <div class="space-y-2 mb-6">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-primary mr-2"></i>
+                                    <span>House Washing</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-primary mr-2"></i>
+                                    <span>Driveway & Sidewalk Cleaning</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-primary mr-2"></i>
+                                    <span>Deck & Patio Washing</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-primary mr-2"></i>
+                                    <span>Gutter Cleaning</span>
+                                </div>
+                            </div>
+                            <a href="#contact" class="inline-flex items-center text-primary hover:text-secondary font-semibold transition-colors">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="pics/commercial.jpg" alt="Commercial House Washing Mechanicsville" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-building text-primary"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-dark">Commercial Services</h3>
+                            </div>
+                            <p class="text-dark/70 mb-6">Boost your Mechanicsville business’s appearance with our professional cleaning.</p>
+                            <div class="space-y-2 mb-6">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-primary mr-2"></i>
+                                    <span>Storefront Cleaning</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-primary mr-2"></i>
+                                    <span>Parking Lot Cleaning</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-primary mr-2"></i>
+                                    <span>Building Exterior Washing</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-primary mr-2"></i>
+                                    <span>Graffiti Removal</span>
+                                </div>
+                            </div>
+                            <a href="#contact" class="inline-flex items-center text-primary hover:text-secondary font-semibold transition-colors">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="pics/solar.jpg" alt="Specialty Cleaning Mechanicsville" class="w-full h-56 object-cover">
+                            <div class="absolute top-4 left-4 bg-secondary/90 text-white py-1 px-3 rounded-full font-semibold text-sm">
+                                New
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-star text-primary"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-dark">Specialty Cleaning</h3>
+                            </div>
+                            <p class="text-dark/70 mb-6">Unique cleaning solutions for Mechanicsville’s toughest challenges.</p>
+                            <div class="space-y-2 mb-6">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-primary mr-2"></i>
+                                    <span>Gutter Cleaning</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-primary mr-2"></i>
+                                    <span>Solar Panel Cleaning</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-primary mr-2"></i>
+                                    <span>Fence & Gate Washing</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-primary mr-2"></i>
+                                    <span>Window Cleaning</span>
+                                </div>
+                            </div>
+                            <a href="#contact" class="inline-flex items-center text-primary hover:text-secondary font-semibold transition-colors">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="#contact" class="bg-primary hover:bg-secondary text-white py-3 px-8 rounded-full font-semibold transition-colors inline-flex items-center justify-center">
+                        <span>Request a Mechanicsville Quote</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="py-20 bg-light">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <span class="inline-block bg-white text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">Why Choose Us</span>
+                    <h2 class="text-4xl font-bold mb-4 text-dark">Mechanicsville’s Cleaning Experts</h2>
+                    <p class="text-lg text-dark/70 max-w-3xl mx-auto">We’re Mechanicsville’s trusted choice for House washing, delivering unmatched results.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-xl p-6 shadow-md card-hover">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-thumbs-up text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-dark text-center">Top-Quality Results</h3>
+                        <p class="text-dark/70 text-center">We deliver flawless cleaning for Mechanicsville properties every time.</p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-md card-hover">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-leaf text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-dark text-center">Eco-Friendly Solutions</h3>
+                        <p class="text-dark/70 text-center">Safe, green products for Mechanicsville homes and businesses.</p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-md card-hover">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-tools text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-dark text-center">Advanced Equipment</h3>
+                        <p class="text-dark/70 text-center">Cutting-edge tools for superior Mechanicsville cleaning.</p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-md card-hover">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-user-tie text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-dark text-center">Local Experts</h3>
+                        <p class="text-dark/70 text-center">Mechanicsville pros with deep cleaning expertise.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <span class="inline-block bg-light text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">Our Process</span>
+                    <h2 class="text-4xl font-bold mb-4 text-dark">How We Serve Mechanicsville</h2>
+                    <p class="text-lg text-dark/70 max-w-3xl mx-auto">Our streamlined process ensures a spotless property in Mechanicsville.</p>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                    <div class="flex flex-col items-center text-center mb-8 md:mb-0 w-full md:w-1/4">
+                        <div class="relative flex items-center justify-center w-full">
+                            <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold z-10">1</div>
+                            <div class="hidden md:block absolute h-0.5 bg-primary w-full left-1/2 z-0"></div>
+                        </div>
+                        <h3 class="text-xl font-bold mt-6 mb-3 text-dark">Request a Quote</h3>
+                        <p class="text-dark/70 px-4">Get a free quote tailored for your Mechanicsville property.</p>
+                    </div>
+
+                    <div class="flex flex-col items-center text-center mb-8 md:mb-0 w-full md:w-1/4">
+                        <div class="relative flex items-center justify-center w-full">
+                            <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold z-10">2</div>
+                            <div class="hidden md:block absolute h-0.5 bg-primary w-full left-1/2 z-0"></div>
+                        </div>
+                        <h3 class="text-xl font-bold mt-6 mb-3 text-dark">Schedule Service</h3>
+                        <p class="text-dark/70 px-4">Pick a convenient time for your Mechanicsville cleaning.</p>
+                    </div>
+
+                    <div class="flex flex-col items-center text-center mb-8 md:mb-0 w-full md:w-1/4">
+                        <div class="relative flex items-center justify-center w-full">
+                            <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold z-10">3</div>
+                            <div class="hidden md:block absolute h-0.5 bg-primary w-full left-1/2 z-0"></div>
+                        </div>
+                        <h3 class="text-xl font-bold mt-6 mb-3 text-dark">Professional Cleaning</h3>
+                        <p class="text-dark/70 px-4">We clean your Mechanicsville property with precision.</p>
+                    </div>
+
+                    <div class="flex flex-col items-center text-center w-full md:w-1/4">
+                        <div class="relative flex items-center justify-center w-full">
+                            <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold z-10">4</div>
+                        </div>
+                        <h3 class="text-xl font-bold mt-6 mb-3 text-dark">Final Inspection</h3>
+                        <p class="text-dark/70 px-4">We ensure your Mechanicsville property sparkles.</p>
+                    </div>
+                </div>
+
+                <div class="mt-16 bg-light rounded-xl p-8 shadow-md">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-dark">Ready to clean your Mechanicsville property?</h3>
+                            <p class="text-dark/70 mb-6">Our Mechanicsville team is here to deliver exceptional House washing services.</p>
+                            <a href="#contact" class="bg-primary hover:bg-secondary text-white py-3 px-6 rounded-full font-semibold transition-colors inline-flex items-center justify-center">
+                                <span>Get Started Today</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                        <div class="relative">
+                            <img src="pics/father_son.jpg" alt="House Washing Team in Mechanicsville" class="w-full h-auto rounded-lg shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 bg-light">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <span class="inline-block bg-white text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">Our Work</span>
+                    <h2 class="text-4xl font-bold mb-4 text-dark">Mechanicsville Transformations</h2>
+                    <p class="text-lg text-dark/70 max-w-3xl mx-auto">See how we’ve restored Mechanicsville properties with our House washing expertise.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="pics/1st_dirty.jpg" alt="Before Driveway Cleaning Mechanicsville" class="w-full h-64 object-cover">
+                            <div class="absolute top-4 left-4 bg-dark/80 text-white py-1 px-3 rounded-full text-sm">
+                                Before
+                            </div>
+                        </div>
+                        <div class="p-4 border-b border-gray-100"></div>
+                        <div class="relative">
+                            <img src="pics/1st_clean.jpg" alt="After Driveway Cleaning Mechanicsville" class="w-full h-64 object-cover">
+                            <div class="absolute top-4 left-4 bg-primary text-white py-1 px-3 rounded-full text-sm">
+                                After
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg text-dark">Driveway Cleaning</h3>
+                            <p class="text-dark/70">Erasing dirt from Mechanicsville driveways.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="pics/2nd_dirty.jpg" alt="Before House Siding Mechanicsville" class="w-full h-64 object-cover">
+                            <div class="absolute top-4 left-4 bg-dark/80 text-white py-1 px-3 rounded-full text-sm">
+                                Before
+                            </div>
+                        </div>
+                        <div class="p-4 border-b border-gray-100"></div>
+                        <div class="relative">
+                            <img src="pics/2nd_clean.jpg" alt="After House Siding Mechanicsville" class="w-full h-64 object-cover">
+                            <div class="absolute top-4 left-4 bg-primary text-white py-1 px-3 rounded-full text-sm">
+                                After
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg text-dark">House Siding</h3>
+                            <p class="text-dark/70">Refreshing Mechanicsville home exteriors.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="pics/3rd_dirty.jpg" alt="Before Deck Cleaning Mechanicsville" class="w-full h-64 object-cover">
+                            <div class="absolute top-4 left-4 bg-dark/80 text-white py-1 px-3 rounded-full text-sm">
+                                Before
+                            </div>
+                        </div>
+                        <div class="p-4 border-b border-gray-100"></div>
+                        <div class="relative">
+                            <img src="pics/3rd_clean.jpg" alt="After Deck Cleaning Mechanicsville" class="w-full h-64 object-cover">
+                            <div class="absolute top-4 left-4 bg-primary text-white py-1 px-3 rounded-full text-sm">
+                                After
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg text-dark">Deck Restoration</h3>
+                            <p class="text-dark/70">Reviving Mechanicsville outdoor spaces.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="#contact" class="inline-flex items-center bg-white text-primary border border-primary hover:bg-primary hover:text-white transition-colors rounded-full px-6 py-3 font-semibold">
+                        <span>View More Mechanicsville Projects</span>
+                        <i class="fas fa-images ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <span class="inline-block bg-light text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">Testimonials</span>
+                    <h2 class="text-4xl font-bold mb-4 text-dark">Mechanicsville Customer Reviews</h2>
+                    <p class="text-lg text-dark/70 max-w-3xl mx-auto">Hear from Mechanicsville residents and businesses about our House washing services.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-light rounded-xl p-8 shadow-md card-hover">
+                        <div class="flex justify-center mb-6">
+                            <div class="flex text-primary">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-dark/80 mb-6 text-center italic">"River City Rinse made our Mechanicsville driveway look brand new! Professional and thorough service."</p>
+                        <div class="flex items-center justify-center">
+                            <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-primary font-bold">JM</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark">Jessica Miller</h4>
+                                <p class="text-dark/60 text-sm">Mechanicsville Resident</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-light rounded-xl p-8 shadow-md card-hover">
+                        <div class="flex justify-center mb-6">
+                            <div class="flex text-primary">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-dark/80 mb-6 text-center italic">"Best House washing in Mechanicsville. Our storefront sparkles thanks to River City Rinse!"</p>
+                        <div class="flex items-center justify-center">
+                            <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-primary font-bold">RJ</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark">Robert Johnson</h4>
+                                <p class="text-dark/60 text-sm">Mechanicsville Business Owner</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-light rounded-xl p-8 shadow-md card-hover">
+                        <div class="flex justify-center mb-6">
+                            <div class="flex text-primary">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-dark/80 mb-6 text-center italic">"Our Mechanicsville home’s siding looks amazing after their service. Highly recommend!"</p>
+                        <div class="flex items-center justify-center">
+                            <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-primary font-bold">SW</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark">Sarah Wilson</h4>
+                                <p class="text-dark/60 text-sm">Mechanicsville Resident</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <span class="inline-block bg-light text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">FAQs</span>
+                    <h2 class="text-4xl font-bold mb-4 text-dark">Mechanicsville House Washing Questions</h2>
+                    <p class="text-lg text-dark/70 max-w-3xl mx-auto">Find answers to common questions about our House washing services in Mechanicsville, VA.</p>
+                </div>
+        
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Left Column -->
+                    <div class="space-y-4">
+                        <!-- FAQ 1 -->
+                        <div x-data="{ open: false }" class="bg-light rounded-xl shadow-md overflow-hidden">
+                            <button @click="open = !open" class="w-full flex justify-between items-center p-6 text-left bg-primary/10 hover:bg-primary/20 transition-colors">
+                                <div class="flex items-center">
+                                    <span class="mr-3 text-primary">
+                                        <i x-show="!open" class="fas fa-caret-right"></i>
+                                        <i x-show="open" class="fas fa-caret-up"></i>
+                                    </span>
+                                    <h3 class="text-lg font-semibold text-dark">How much does House washing cost in Mechanicsville?</h3>
+                                </div>
+                            </button>
+                            <div x-show="open" x-transition class="p-6 bg-white">
+                                <p class="text-dark/80 mb-3">Our House washing prices in Mechanicsville typically range from:</p>
+                                <ul class="list-disc pl-5 text-dark/80">
+                                    <li>Single-story house: $250-$350</li>
+                                    <li>Two-story house: $350-$550</li>
+                                    <li>Driveway cleaning: $100-$250</li>
+                                    <li>Patio cleaning: $100-$200</li>
+                                    <li>Fence cleaning: $150-$300</li>
+                                    <li>Deck cleaning: $150-$350</li>
+                                    <li>Sidewalk cleaning: $75-$200</li>
+                                    <li>Garage floor cleaning: $100-$250</li>
+                                    <li>Window washing: $150-$400</li>
+                                    <li>We offer package deals when combining multiple services for greater savings!</li>
+                                </ul>
+                            </div>
+                        </div>
+        
+                        <!-- FAQ 2 -->
+                        <div x-data="{ open: false }" class="bg-light rounded-xl shadow-md overflow-hidden">
+                            <button @click="open = !open" class="w-full flex justify-between items-center p-6 text-left bg-primary/10 hover:bg-primary/20 transition-colors">
+                                <div class="flex items-center">
+                                    <span class="mr-3 text-primary">
+                                        <i x-show="!open" class="fas fa-caret-right"></i>
+                                        <i x-show="open" class="fas fa-caret-up"></i>
+                                    </span>
+                                    <h3 class="text-lg font-semibold text-dark">What makes River City Rinse stand out?</h3>
+                                </div>
+                            </button>
+                            <div x-show="open" x-transition class="p-6 bg-white">
+                                <ul class="list-disc pl-5 text-dark/80">
+                                    <li>Skilled Mechanicsville team with years of experience</li>
+                                    <li>Gentle, damage-free cleaning techniques</li>
+                                    <li>Top-tier, eco-safe cleaning solutions</li>
+                                    <li>Guaranteed results with every job, big or small</li>
+                                    <li>Transparent pricing with no hidden fees</li>
+                                </ul>
+                            </div>
+                        </div>
+        
+                        <!-- FAQ 3 -->
+                        <div x-data="{ open: false }" class="bg-light rounded-xl shadow-md overflow-hidden">
+                            <button @click="open = !open" class="w-full flex justify-between items-center p-6 text-left bg-primary/10 hover:bg-primary/20 transition-colors">
+                                <div class="flex items-center">
+                                    <span class="mr-3 text-primary">
+                                        <i x-show="!open" class="fas fa-caret-right"></i>
+                                        <i x-show="open" class="fas fa-caret-up"></i>
+                                    </span>
+                                    <h3 class="text-lg font-semibold text-dark">What House washing services do you offer near me?</h3>
+                                </div>
+                            </button>
+                            <div x-show="open" x-transition class="p-6 bg-white">
+                                <ul class="list-disc pl-5 text-dark/80">
+                                    <li>House exterior cleaning (vinyl, brick, stucco)</li>
+                                    <li>Driveway and sidewalk restoration</li>
+                                    <li>Deck and fence washing</li>
+                                    <li>Patio and porch cleaning</li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+        
+                        <!-- FAQ 4 -->
+                        <div x-data="{ open: false }" class="bg-light rounded-xl shadow-md overflow-hidden">
+                            <button @click="open = !open" class="w-full flex justify-between items-center p-6 text-left bg-primary/10 hover:bg-primary/20 transition-colors">
+                                <div class="flex items-center">
+                                    <span class="mr-3 text-primary">
+                                        <i x-show="!open" class="fas fa-caret-right"></i>
+                                        <i x-show="open" class="fas fa-caret-up"></i>
+                                    </span>
+                                    <h3 class="text-lg font-semibold text-dark">Is House washing worth the cost?</h3>
+                                </div>
+                            </button>
+                            <div x-show="open" x-transition class="p-6 bg-white">
+                                <p class="text-dark/80">Absolutely! Professional House washing in Mechanicsville not only improves curb appeal but also protects your property from damage caused by mold, algae, and dirt buildup. Regular cleaning extends the life of your home's exterior surfaces, saving you costly repairs in the long run.</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Right Column -->
+                    <div class="space-y-4">
+                        <!-- FAQ 5 -->
+                        <div x-data="{ open: false }" class="bg-light rounded-xl shadow-md overflow-hidden">
+                            <button @click="open = !open" class="w-full flex justify-between items-center p-6 text-left bg-primary/10 hover:bg-primary/20 transition-colors">
+                                <div class="flex items-center">
+                                    <span class="mr-3 text-primary">
+                                        <i x-show="!open" class="fas fa-caret-right"></i>
+                                        <i x-show="open" class="fas fa-caret-up"></i>
+                                    </span>
+                                    <h3 class="text-lg font-semibold text-dark">Are your cleaning solutions safe?</h3>
+                                </div>
+                            </button>
+                            <div x-show="open" x-transition class="p-6 bg-white">
+                                <p class="text-dark/80">Yes! Our eco-friendly solutions are diluted to protect Mechanicsville plants, pets, and properties. We rinse thoroughly to ensure no residue remains.</p>
+                            </div>
+                        </div>
+        
+                        <!-- FAQ 6 -->
+                        <div x-data="{ open: false }" class="bg-light rounded-xl shadow-md overflow-hidden">
+                            <button @click="open = !open" class="w-full flex justify-between items-center p-6 text-left bg-primary/10 hover:bg-primary/20 transition-colors">
+                                <div class="flex items-center">
+                                    <span class="mr-3 text-primary">
+                                        <i x-show="!open" class="fas fa-caret-right"></i>
+                                        <i x-show="open" class="fas fa-caret-up"></i>
+                                    </span>
+                                    <h3 class="text-lg font-semibold text-dark">How often should I House wash my home?</h3>
+                                </div>
+                            </button>
+                            <div x-show="open" x-transition class="p-6 bg-white">
+                                <p class="text-dark/80">In Mechanicsville, we recommend cleaning every 1-2 years to remove algae and dirt. This extends the life of siding, saving you costly repairs.</p>
+                            </div>
+                        </div>
+        
+                        <!-- FAQ 7 -->
+                        <div x-data="{ open: false }" class="bg-light rounded-xl shadow-md overflow-hidden">
+                            <button @click="open = !open" class="w-full flex justify-between items-center p-6 text-left bg-primary/10 hover:bg-primary/20 transition-colors">
+                                <div class="flex items-center">
+                                    <span class="mr-3 text-primary">
+                                        <i x-show="!open" class="fas fa-caret-right"></i>
+                                        <i x-show="open" class="fas fa-caret-up"></i>
+                                    </span>
+                                    <h3 class="text-lg font-semibold text-dark">What's growing on my Mechanicsville home?</h3>
+                                </div>
+                            </button>
+                            <div x-show="open" x-transition class="p-6 bg-white">
+                                <p class="text-dark/80">Mold, algae, or mildew often appears on shady sides of homes, especially in Mechanicsville's humid climate. Regular House washing prevents discoloration and boosts curb appeal.</p>
+                            </div>
+                        </div>
+        
+                        <!-- FAQ 8 -->
+                        <div x-data="{ open: false }" class="bg-light rounded-xl shadow-md overflow-hidden">
+                            <button @click="open = !open" class="w-full flex justify-between items-center p-6 text-left bg-primary/10 hover:bg-primary/20 transition-colors">
+                                <div class="flex items-center">
+                                    <span class="mr-3 text-primary">
+                                        <i x-show="!open" class="fas fa-caret-right"></i>
+                                        <i x-show="open" class="fas fa-caret-up"></i>
+                                    </span>
+                                    <h3 class="text-lg font-semibold text-dark">Still have questions?</h3>
+                                </div>
+                            </button>
+                            <div x-show="open" x-transition class="p-6 bg-white">
+                                <p class="text-dark/80">Contact River City Rinse for personalized answers about House washing in Mechanicsville! <a href="#contact" class="text-primary hover:text-secondary font-semibold">Get in touch</a> for a free estimate today.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="service-areas" class="py-20 bg-light">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <span class="inline-block bg-white text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">Service Areas</span>
+                    <h2 class="text-4xl font-bold mb-4 text-dark">House Washing Mechanicsville Neighborhoods</h2>
+                    <p class="text-lg text-dark/70 max-w-3xl mx-auto">River City Rinse serves homes and businesses across Mechanicsville, VA, transforming properties with expert House washing.</p>
+                </div>
+        
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Column 1 -->
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <ul class="space-y-3 text-dark/80">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Ash Creek
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Pebble Creek
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                High Point Farms
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Battlefield Green
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Giles Farm
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Spring Meadows
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Kings Charter
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Milestone
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Bluffs At Bell Creek
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Honey Meadows
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Lereve Manor
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Cool Spring West
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Avondale
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Rutland
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Ivy Banks
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Mayfield Farms
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Hanover Grove
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Summer Walk
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Craney Island Farms
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Walnut Grove
+                            </li>
+                        </ul>
+                    </div>
+        
+                    <!-- Column 2 -->
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <ul class="space-y-3 text-dark/80">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Laurel Meadows
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Beechwood Farms
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Sherrington
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Cool Spring Forest
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Mill Valley
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Fox Head
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Bruce Estates
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Meadow Gate
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Hanover Farms
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Patrick Henry Heights
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Holly Ridge
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Sledd Run
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Stags Leap
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Forest Lake Hills
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Cool Well
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Windy Hill Estates
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Garrison Manor
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Cherrydale West
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Castlewood
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Travellers Run
+                            </li>
+                        </ul>
+                    </div>
+        
+                    <!-- Column 3 -->
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <ul class="space-y-3 text-dark/80">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Battlefield Farms
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Windsor
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Manorwood
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Deer Valley
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Pole Green Station
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Cherrydale
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Villages At Taylor Farm
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Aspen Hill Farms
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Robin Ridge
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Cherry Grove
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Beaverdam Park
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Brandy Creek Estates
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Hanover Heights South
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Southerly @ Caldwell Park
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Rural Point
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                The Villas At Rose Hill
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Cypresstree
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Foxhead
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Crown Colony
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Locust Hill
+                            </li>
+                        </ul>
+                    </div>
+        
+                    <!-- Column 4 -->
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <ul class="space-y-3 text-dark/80">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Atlee Ridge
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Sharon Park
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Cold Harbor Meadows
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Bishops Park
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Shady Grove Forest
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Rutland Townhouses
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Village At Pebble Lake
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Creekside Village
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Summergrove
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Brooks Hollow
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Fieldshire
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Colonial Forest
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Full View Manor
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Legacy Park
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Oakley Hill
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Madison Springs
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Green Ridge
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Hartford Oaks
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Elwin Place
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Meredith Farms
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <div class="text-center mt-12">
+                    <a href="#contact" class="bg-primary hover:bg-secondary text-white py-3 px-8 rounded-full font-semibold transition-colors inline-flex items-center justify-center">
+                        <span>Book House Washing in Your Area</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 water-bg relative overflow-hidden">
+            <div class="bg-bubbles">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+            </div>
+            
+            <div class="water-wave"></div>
+            <div class="water-wave wave2"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-5xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2">
+                            <div class="bg-primary p-8 md:p-12 text-white">
+                                <h2 class="text-3xl font-bold mb-6">Contact Us in Mechanicsville</h2>
+                                <p class="mb-8">Ready to refresh your Mechanicsville property? Contact us for a free quote today.</p>
+                                
+                                <div class="space-y-6">
+                                    <div class="flex items-start">
+                                        <div class="bg-white/10 rounded-full p-3 mr-4">
+                                            <i class="fas fa-map-marker-alt text-white"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-semibold text-lg">Our Location</h3>
+                                            <p class="text-white/80">9327 Chamberlayne Rd, Mechanicsville, VA 23116</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="bg-white/10 rounded-full p-3 mr-4">
+                                            <i class="fas fa-phone-alt text-white"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-semibold text-lg">Call Us</h3>
+                                            <p class="text-white/80">(804) 723-0709</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="bg-white/10 rounded-full p-3 mr-4">
+                                            <i class="fas fa-envelope text-white"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-semibold text-lg">Email Us</h3>
+                                            <p class="text-white/80">info@rivercityrinse.com</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="bg-white/10 rounded-full p-3 mr-4">
+                                            <i class="fas fa-clock text-white"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-semibold text-lg">Business Hours</h3>
+                                            <p class="text-white/80">Mon-Fri: 8AM-6PM<br>Saturday: 9AM-4PM<br>Sunday: Closed</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-12">
+                                    <h3 class="font-semibold text-lg mb-4">Connect With Us</h3>
+                                    <div class="flex space-x-4">
+                                        <a href="https://www.facebook.com/rivercityrinse" class="bg-white/10 hover:bg-white/20 transition-colors w-10 h-10 rounded-full flex items-center justify-center">
+                                            <i class="fab fa-facebook-f text-white"></i>
+                                        </a>
+                                        <a href="https://www.facebook.com/rivercityrinse" class="bg-white/10 hover:bg-white/20 transition-colors w-10 h-10 rounded-full flex items-center justify-center">
+                                            <i class="fab fa-instagram text-white"></i>
+                                        </a>
+                                        <a href="https://www.facebook.com/rivercityrinse" class="bg-white/10 hover:bg-white/20 transition-colors w-10 h-10 rounded-full flex items-center justify-center">
+                                            <i class="fab fa-twitter text-white"></i>
+                                        </a>
+                                        <a href="https://www.facebook.com/rivercityrinse" class="bg-white/10 hover:bg-white/20 transition-colors w-10 h-10 rounded-full flex items-center justify-center">
+                                            <i class="fab fa-youtube text-white"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="p-8 md:p-12">
+                                <div class="flex flex-col space-y-6 justify-center">
+                                    <div class="bg-white/90 rounded-xl shadow-lg p-4" x-data="quoteBuilder()">
+                                        <h3 class="text-primary font-bold mb-3">Get Your Free Mechanicsville Quote</h3>
+                                        
+                                        <div class="relative mb-3">
+                                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-primary/70">
+                                                <i class="fas fa-search"></i>
+                                            </div>
+                                            <input 
+                                                type="text" 
+                                                x-model="searchTerm" 
+                                                @input="searchAddress()" 
+                                                placeholder="Enter your Mechanicsville address..." 
+                                                class="w-full pl-10 py-3 px-4 bg-white border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                                            >
+                                            
+                                            <div 
+                                                class="absolute z-20 w-full bg-white mt-1 border border-gray-200 rounded-xl shadow-lg max-h-60 overflow-y-auto" 
+                                                x-show="suggestions.length > 0"
+                                                @click.away="suggestions = []"
+                                            >
+                                                <template x-for="(suggestion, index) in suggestions" :key="index">
+                                                    <div 
+                                                        class="p-3 border-b border-gray-100 cursor-pointer hover:bg-primary/10 transition-colors duration-200 flex items-center"
+                                                        @click="selectAddress(suggestion)"
+                                                    >
+                                                        <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                                                        <span x-text="suggestion.address"></span>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </div>
+                                        
+                                        <div x-show="selectedAddress === null" class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
+                                            <button 
+                                                @click="searchAddress()"
+                                                class="bg-primary hover:bg-secondary text-white py-3 px-6 rounded-full font-semibold transition-colors inline-flex items-center justify-center"
+                                            >
+                                                <span>Search Address</span>
+                                                <i class="fas fa-search ml-2"></i>
+                                            </button>
+                                            <a href="#services" class="bg-white text-primary border border-primary py-3 px-6 rounded-full font-semibold hover:bg-primary hover:text-white transition-colors inline-flex items-center justify-center">
+                                                <span>Our Services</span>
+                                            </a>
+                                        </div>
+                                        
+                                        <div 
+                                            x-show="selectedAddress !== null"
+                                            x-transition:enter="transition ease-out duration-300"
+                                            x-transition:enter-start="opacity-0"
+                                            x-transition:enter-end="opacity-100"
+                                            class="mt-3"
+                                        >
+                                            <div class="bg-gradient-to-r from-primary to-secondary p-3 rounded-t-lg text-white">
+                                                <div class="flex justify-between items-start">
+                                                    <div>
+                                                        <p class="font-medium flex items-center">
+                                                            <i class="fas fa-home mr-2"></i>
+                                                            <span x-text="selectedAddress?.address"></span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <div class="text-sm opacity-90">Base price:</div>
+                                                        <div class="text-xl font-bold" x-text="'$' + selectedAddress?.cost"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="p-3 bg-white/80 border-x border-b border-gray-200 rounded-b-lg">
+                                                <p class="font-medium mb-2 flex items-center text-gray-700">
+                                                    <i class="fas fa-plus-circle mr-2 text-primary"></i>
+                                                    Additional Services:
+                                                </p>
+                                                
+                                                <div class="grid grid-cols-2 gap-2 mb-3">
+                                                    <template x-for="(addon, index) in addons" :key="index">
+                                                        <div class="relative bg-white/50 rounded-lg p-2 transition-all hover:shadow-sm border border-gray-100 hover:border-primary/20">
+                                                            <label class="checkbox-primary flex items-center w-full cursor-pointer text-sm">
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    :id="'addon-' + index"
+                                                                    x-model="addon.selected"
+                                                                    @change="updateAddonDetails()"
+                                                                    class="hidden"
+                                                                >
+                                                                <span class="checkmark"></span>
+                                                                <div class="ml-2">
+                                                                    <div class="font-medium" x-text="addon.name"></div>
+                                                                    <div class="text-gray-500 text-xs" x-text="addon.priceRange"></div>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                                
+                                                <div class="flex justify-between items-center border-t border-gray-200 pt-2 mt-2">
+                                                    <div>
+                                                        <p class="font-medium text-primary">Total Estimate:</p>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <p class="font-bold text-lg" x-text="'$' + (parseInt(selectedAddress?.cost) + addonMinTotal) + ' - $' + (parseInt(selectedAddress?.cost) + addonMaxTotal)"></p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="mt-3 flex space-x-2">
+                                                    <button 
+                                                        @click="openContactModal()"
+                                                        class="flex-1 bg-primary hover:bg-secondary text-white py-2 px-4 rounded-full font-medium text-sm transition-colors inline-flex items-center justify-center"
+                                                    >
+                                                        <i class="fas fa-calendar-check mr-2"></i>
+                                                        <span>Schedule Cleaning</span>
+                                                    </button>
+                                                    <button 
+                                                        @click="resetForm()"
+                                                        class="bg-gray-100 hover:bg-gray-200 text-gray-700 py-2 px-3 rounded-full font-medium text-sm transition-colors"
+                                                    >
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="bg-primary rounded-full p-2">
+                            <i class="fas fa-water text-white text-xl"></i>
+                        </div>
+                        <span class="text-primary text-2xl font-bold">River City <span class="text-secondary">Rinse</span></span>
+                    </div>
+                    <p class="text-white/70 mb-6">Expert House washing for Mechanicsville, VA homes and businesses. Making your property spotless.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/rivercityrinse" class="bg-primary/20 hover:bg-primary/30 transition-colors w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fab fa-facebook-f text-white"></i>
+                        </a>
+                        <a href="https://www.facebook.com/rivercityrinse" class="bg-primary/20 hover:bg-primary/30 transition-colors w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fab fa-instagram text-white"></i>
+                        </a>
+                        <a href="https://www.facebook.com/rivercityrinse" class="bg-primary/20 hover:bg-primary/30 transition-colors w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                        <a href="https://www.facebook.com/rivercityrinse" class="bg-primary/20 hover:bg-primary/30 transition-colors w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fab fa-youtube text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6 relative inline-block">
+                        Quick Links
+                        <span class="absolute -bottom-2 left-0 w-12 h-1 bg-primary"></span>
+                    </h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="/" class="text-white/70 hover:text-primary transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-white/70 hover:text-primary transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>
+                                <span>Services</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#process" class="text-white/70 hover:text-primary transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>
+                                <span>Our Process</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#gallery" class="text-white/70 hover:text-primary transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>
+                                <span>Gallery</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#testimonials" class="text-white/70 hover:text-primary transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>
+                                <span>Testimonials</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="text-white/70 hover:text-primary transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6 relative inline-block">
+                        Services
+                        <span class="absolute -bottom-2 left-0 w-12 h-1 bg-primary"></span>
+                    </h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#services" class="text-white/70 hover:text-primary transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>
+                                <span>Residential Cleaning</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-white/70 hover:text-primary transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>
+                                <span>Commercial Cleaning</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-white/70 hover:text-primary transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>
+                                <span>Driveway Cleaning</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-white/70 hover:text-primary transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>
+                                <span>Deck & Patio Washing</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-white/70 hover:text-primary transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>
+                                <span>Gutter Cleaning</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-white/70 hover:text-primary transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>
+                                <span>Fence Washing</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6 relative inline-block">
+                        Newsletter
+                        <span class="absolute -bottom-2 left-0 w-12 h-1 bg-primary"></span>
+                    </h3>
+                    <p class="text-white/70 mb-6">Subscribe for Mechanicsville cleaning tips and offers.</p>
+                    <form class="mb-6">
+                        <div class="flex">
+                            <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none">
+                            <button type="submit" class="bg-primary hover:bg-secondary transition-colors px-4 py-3 rounded-r-lg">
+                                <i class="fas fa-paper-plane text-white"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="flex items-center space-x-2">
+                        <div class="bg-primary/20 p-2 rounded-full">
+                            <i class="fas fa-headset text-primary"></i>
+                        </div>
+                        <div>
+                            <p class="text-white/70 text-sm">Need Help? Call Us</p>
+                            <p class="text-white font-bold">(804) 723-0709</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-white/50 mb-4 md:mb-0">© 2025 River City Rinse. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-white/50 hover:text-primary transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-white/50 hover:text-primary transition-colors">Terms of Service</a>
+                        <a href="#" class="text-white/50 hover:text-primary transition-colors">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" 
+         x-data="contactModal()" 
+         x-show="isOpen" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" 
+         style="display: none;"
+         @keydown.escape.window="closeModal()">
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-6 mx-4 relative" 
+             @click.outside="closeModal()"
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 transform scale-95"
+             x-transition:enter-end="opacity-100 transform scale-100">
+            
+            <button @click="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <div x-show="isSubmitSuccess" class="text-center py-10">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-500 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-dark mb-2">Thank You!</h3>
+                <p class="text-gray-600">Your booking request has been submitted successfully. We'll be in touch with you shortly.</p>
+            </div>
+            
+            <div x-show="isSubmitError" class="text-center py-6">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-exclamation-triangle text-red-500 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-dark mb-2">Oops!</h3>
+                <p class="text-gray-600" x-text="errorMessage"></p>
+                <button 
+                    @click="isSubmitError = false" 
+                    class="mt-4 bg-primary hover:bg-secondary text-white py-2 px-6 rounded-full font-medium transition-colors inline-flex items-center justify-center"
+                >
+                    Try Again
+                </button>
+            </div>
+            
+            <div x-show="!isSubmitSuccess && !isSubmitError">
+                <div class="mb-4 text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-user-plus text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark">Almost Done!</h3>
+                    <p class="text-gray-600">Please provide your contact information to complete your Mechanicsville booking.</p>
+                </div>
+                
+                <form @submit.prevent="submitForm()">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                x-model="formData.name" 
+                                class="w-full pl-10 py-3 px-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                                placeholder="Your full name"
+                                required
+                            >
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                x-model="formData.phone" 
+                                class="w-full pl-10 py-3 px-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                                placeholder="Your phone number"
+                                required
+                            >
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                x-model="formData.email" 
+                                class="w-full pl-10 py-3 px-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                                placeholder="Your email address"
+                                required
+                            >
+                        </div>
+                    </div>
+                    
+                    <div class="bg-light rounded-lg p-4 mb-6">
+                        <h4 class="font-medium text-dark mb-2">Quote Summary</h4>
+                        <div class="text-sm">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600">Address:</span>
+                                <span class="font-medium" x-text="quoteData.address"></span>
+                            </div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600">Base Price:</span>
+                                <span class="font-medium" x-text="'$' + quoteData.basePrice"></span>
+                            </div>
+                            <div x-show="quoteData.services.length > 0">
+                                <div class="text-gray-600 mb-1">Selected Services:</div>
+                                <ul class="list-disc list-inside ml-2">
+                                    <template x-for="service in quoteData.services" :key="service">
+                                        <li x-text="service" class="text-gray-800"></li>
+                                    </template>
+                                </ul>
+                            </div>
+                            <div class="flex justify-between mt-2 pt-2 border-t border-gray-200">
+                                <span class="text-gray-700 font-medium">Total Estimate:</span>
+                                <span class="font-bold text-primary" x-text="'$' + quoteData.minTotal + ' - $' + quoteData.maxTotal"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button 
+                        type="submit" 
+                        class="w-full bg-primary hover:bg-secondary text-white py-3 px-6 rounded-full font-semibold transition-colors flex items-center justify-center"
+                        :disabled="isSubmitting"
+                    >
+                        <span x-show="!isSubmitting">Complete Booking</span>
+                        <span x-show="isSubmitting" class="flex items-center">
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Processing...
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thank You Section -->
+    <section id="thank-you" class="py-20 bg-light hidden">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-check text-white text-3xl"></i>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 text-dark">Thank You!</h2>
+                <p class="text-lg text-dark/70 mb-8">Your Mechanicsville booking request has been submitted. We’ll contact you soon to confirm.</p>
+                <a href="/" class="bg-primary hover:bg-secondary text-white py-3 px-8 rounded-full font-semibold transition-colors inline-flex items-center justify-center">
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Builder Alpine.js Script -->
+    <script>
+function quoteBuilder() {
+    return {
+        addresses: [],
+        searchTerm: '',
+        suggestions: [],
+        selectedAddress: null,
+        addons: [
+            { name: "Driveway", priceRange: "$100–$250", selected: false, minPrice: 100, maxPrice: 250 },
+            { name: "Patio", priceRange: "$100–$200", selected: false, minPrice: 100, maxPrice: 200 },
+            { name: "Fence", priceRange: "$150–$300", selected: false, minPrice: 150, maxPrice: 300 },
+            { name: "Deck", priceRange: "$150–$350", selected: false, minPrice: 150, maxPrice: 350 },
+            { name: "Sidewalks", priceRange: "$75–$200", selected: false, minPrice: 75, maxPrice: 200 },
+            { name: "Garage Floor", priceRange: "$100–$250", selected: false, minPrice: 100, maxPrice: 250 },
+            { name: "Window Washing", priceRange: "$150–$400", selected: false, minPrice: 150, maxPrice: 400 }
+        ],
+        selectedAddonsDetails: [],
+        addonMinTotal: 0,
+        addonMaxTotal: 0,
+        
+        init() {
+            fetch('hanover_addresses.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load addresses data');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    this.addresses = data;
+                    console.log('Loaded', this.addresses.length, 'addresses');
+                })
+                .catch(error => {
+                    console.error('Error loading address data:', error);
+                    this.addresses = [
+                        {address: "123 Main St, Mechanicsville, VA 23116", cost: "399"},
+                        {address: "456 Oak Ave, Mechanicsville, VA 23116", cost: "449"},
+                        {address: "789 Pine Rd, Mechanicsville, VA 23116", cost: "349"},
+                        {address: "321 Maple Dr, Mechanicsville, VA 23116", cost: "499"},
+                        {address: "654 Elm St, Mechanicsville, VA 23116", cost: "379"}
+                    ];
+                });
+        },
+        
+        searchAddress() {
+            if (!this.searchTerm.trim()) {
+                this.suggestions = [];
+                return;
+            }
+            
+            const searchTermLower = this.searchTerm.toLowerCase();
+            this.suggestions = this.addresses
+                .filter(address => address.address.toLowerCase().includes(searchTermLower))
+                .slice(0, 5);
+        },
+        
+        selectAddress(address) {
+            this.selectedAddress = address;
+            this.searchTerm = address.address;
+            this.suggestions = [];
+            
+            this.addons.forEach(addon => addon.selected = false);
+            this.updateAddonDetails();
+        },
+        
+        updateAddonDetails() {
+            this.selectedAddonsDetails = this.addons
+                .filter(addon => addon.selected)
+                .map(addon => ({
+                    name: addon.name,
+                    priceRange: addon.priceRange
+                }));
+            
+            this.addonMinTotal = this.addons
+                .filter(addon => addon.selected)
+                .reduce((total, addon) => total + addon.minPrice, 0);
+                
+            this.addonMaxTotal = this.addons
+                .filter(addon => addon.selected)
+                .reduce((total, addon) => total + addon.maxPrice, 0);
+        },
+        
+        openContactModal() {
+            const selectedServices = this.addons
+                .filter(addon => addon.selected)
+                .map(addon => addon.name);
+            
+            // Prepare data for the contact modal
+            const modalData = {
+                address: this.selectedAddress.address,
+                basePrice: this.selectedAddress.cost,
+                services: selectedServices,
+                minTotal: parseInt(this.selectedAddress.cost) + this.addonMinTotal,
+                maxTotal: parseInt(this.selectedAddress.cost) + this.addonMaxTotal
+            };
+            
+            // Dispatch custom event to open modal with data
+            const event = new CustomEvent('open-contact-modal', { 
+                detail: modalData 
+            });
+            window.dispatchEvent(event);
+        },
+        
+        // Reset the form
+        resetForm() {
+            this.selectedAddress = null;
+            this.searchTerm = '';
+            this.suggestions = [];
+            this.addons.forEach(addon => addon.selected = false);
+            this.updateAddonDetails();
+        }
+    };
+}
+
+function contactModal() {
+    return {
+        isOpen: false,
+        isSubmitting: false,
+        isSubmitSuccess: false,
+        isSubmitError: false,
+        errorMessage: '',
+        formData: {
+            name: '',
+            phone: '',
+            email: ''
+        },
+        quoteData: {
+            address: '',
+            basePrice: '',
+            services: [],
+            minTotal: 0,
+            maxTotal: 0
+        },
+        
+        init() {
+            // Listen for open modal event
+            window.addEventListener('open-contact-modal', (event) => {
+                this.quoteData = event.detail;
+                this.isOpen = true;
+                this.isSubmitSuccess = false;
+                this.isSubmitError = false;
+                this.errorMessage = '';
+            });
+        },
+        
+        closeModal() {
+            this.isOpen = false;
+            // Reset form data
+            this.formData = {
+                name: '',
+                phone: '',
+                email: ''
+            };
+            this.isSubmitSuccess = false;
+            this.isSubmitError = false;
+            this.errorMessage = '';
+        },
+        
+        submitForm() {
+            this.isSubmitting = true;
+            this.isSubmitSuccess = false;
+            this.isSubmitError = false;
+            
+            // Prepare services as a comma-separated string
+            const servicesStr = this.quoteData.services.join(', ');
+            const estimateStr = '$' + this.quoteData.minTotal + ' - $' + this.quoteData.maxTotal;
+            
+            // Create form data for submission
+            const formData = new FormData();
+            formData.append('entry.335595778', this.formData.name);
+            formData.append('entry.604760962', this.quoteData.address);
+            formData.append('entry.1642728981', servicesStr);
+            formData.append('entry.2031890163', this.formData.phone);
+            formData.append('entry.2024519265', this.formData.email);
+            formData.append('entry.245336323', estimateStr);
+            
+            // Extract the form ID from the Google Form URL
+            const formId = 'e/1FAIpQLSeLPwFqRwKwpUXQnZKDAAr9y5jtl5VVfBxEJTnqrK1EFCrCGQ';
+            const submitUrl = `https://docs.google.com/forms/d/${formId}/formResponse`;
+            
+            // Submit the form using a hidden iframe to avoid CORS issues
+            const iframe = document.createElement('iframe');
+            iframe.name = 'hidden_iframe';
+            iframe.id = 'hidden_iframe';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            
+            // Create a form element
+            const form = document.createElement('form');
+            form.method = 'post';
+            form.action = submitUrl;
+            form.target = 'hidden_iframe';
+            
+            // Add form data as hidden inputs
+            for (let [key, value] of formData.entries()) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                form.appendChild(input);
+            }
+            
+            // Add the form to the document and submit it
+            document.body.appendChild(form);
+            
+            // Handle success or failure
+            iframe.onload = () => {
+                setTimeout(() => {
+                    this.isSubmitting = false;
+                    this.isSubmitSuccess = true;
+                    document.body.removeChild(form);
+                    
+                    // Auto close after success
+                    setTimeout(() => {
+                        this.closeModal();
+                        window.location.href = '#thank-you';
+                    }, 2000);
+                }, 1000);
+            };
+            
+            // Handle potential errors
+            iframe.onerror = () => {
+                this.isSubmitting = false;
+                this.isSubmitError = true;
+                this.errorMessage = 'There was an error submitting your request. Please try again or contact us directly.';
+            };
+            
+            // Submit the form
+            form.submit();
+        }
+    };
+}
+    </script>
+
+    <!-- Mobile menu toggle -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+
+    <div id="chatbot-container"></div>
+    <script src="chatbot/chatbot.js"></script>
+</body>
+</html>
